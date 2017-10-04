@@ -1,8 +1,13 @@
 # [Music Guide](https://docs.google.com/document/d/1SoD_unLnl7jysV7rbvhK83OcQsP8KZCEjhpV2kOrdAM/edit#heading=h.useallixe2gp)
 
+![Entrega 1](https://img.shields.io/badge/Entrega%201-Aprobada-brightgreen.svg?style=flat)
+![Entrega 2](https://img.shields.io/badge/Entrega%202-Aprobada-brightgreen.svg?style=flat)
+![Entrega 3](https://img.shields.io/badge/Entrega%203-En%20desarrollo-red.svg?style=flat)
+
 ![Imagen](https://i.redd.it/osiq3znqm79z.jpg)
 
-## Tercera iteración
+
+# Tercera iteración
 ¡Va queriendo! Ahora nos acercaron nuevos requerimientos
 
 ### Criterios para comparar canciones
@@ -55,3 +60,24 @@ Y queremos que sigas trabajando en grupo utilizando herramientas profesionales
 * para compartir código
 * para manejar versionado de código
 * y eventualmente para coordinar el trabajo en conjunto de diferentes personas que colaboran en un proyecto de software
+
+
+</p>
+<p align="center">
+    <img src="https://i.redd.it/osiq3znqm79z.jpg"
+         height="430">
+</p>
+
+<p align="center">
+    <a href="https://www.gratipay.com/Shields/">
+        <img src="https://img.shields.io/badge/Entrega%201-Aprobada-brightgreen.svg?style=flat"
+             alt="Gratipay">
+    </a>
+    <a href="https://npmjs.org/package/gh-badges">
+        <img src="https://img.shields.io/badge/Entrega%202-Aprobada-brightgreen.svg?style=flat"
+             alt="npm version">  
+    </a>
+    <a href="https://discord.gg/HjJCwm5">
+        <img src="https://img.shields.io/badge/Entrega%203-En desarrollo-red.svg?style=flat"
+             alt="chat on Discord">
+    </a>
