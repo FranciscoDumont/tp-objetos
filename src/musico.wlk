@@ -1,5 +1,6 @@
 import Albumes.*
 import Presentacion.*
+import Cancion.*
 
 class Musico {
 
@@ -10,12 +11,12 @@ class Musico {
 	constructor(unGrupo, unaHabilidad, unosAlbumes){
 		grupo = unGrupo
 		habilidad = unaHabilidad
-		albumes= unosAlbumes
+		albumes = unosAlbumes
 		
 	}
 	
 	method agregarAlbum(album){
-	albumes.add(album)	
+		albumes.add(album)	
 	}
 	
 	method cantaEnGrupo(presentacion) {
@@ -28,7 +29,7 @@ class Musico {
 	
 	method cancionesConPalabra(palabra){
   		return albumes.flatMap({ album => album.cancionesConLaPalabra(palabra) })
- }
+ 	}
 	
 	method duracionObra(){
 		return albumes.sum({album => album.duracion()})
@@ -36,6 +37,22 @@ class Musico {
 	
 	method laPego(){
 		return albumes.all({ album => album.esBuenaVenta() })		
+	}
+	
+	method cumpleCon(requisito){ //requisitos.wlk
+		return requisito.cumple(self)
+	}
+
+	method compusoUnaCancion(){
+		return albumes.size() > 0 && albumes.forEach{album => album.tieneUnaCancion()}
+	}
+
+	method habilidad(){
+		return habilidad
+	}
+	
+	method interpretaBien(cancion) {
+		return habilidad > 60 || albumes.any({album=>album.estaEnAlbum(cancion)})		
 	}
 }
 
@@ -46,11 +63,11 @@ class MusicoVocalista inherits Musico {
 	constructor(unGrupo, unaHabilidad, unosAlbumes , unaPalabra) = super(unGrupo, unaHabilidad, unosAlbumes) {
 		palabra = unaPalabra
 	}
-
-	method interpretaBien(cancion) {
-		return cancion.tienePalabra(palabra)
-	}
 	
+	override method interpretaBien(cancion) {
+    	return cancion.tienePalabra(palabra) || super(cancion)
+    }
+
 	method cobra(presentacion) {
 		if (presentacion.esConcurrida()) {
 			return 500
@@ -72,9 +89,11 @@ class MusicoDeGrupo inherits Musico {
 	constructor(unGrupo, unaHabilidad, unosAlbumes ,unPlus) = super(unGrupo, unaHabilidad, unosAlbumes){ 
 		plus = unPlus
 	}
-	method interpretaBien(cancion) {
-		return cancion.duraMasDe(300)
+
+	override method interpretaBien(cancion) {
+		return cancion.duraMasDe(300) || super(cancion)
 	}
+
 	method habilidad(presentacion) { 
 		if (self.cantaEnGrupo(presentacion)) {
 			return habilidad += plus
@@ -82,12 +101,11 @@ class MusicoDeGrupo inherits Musico {
 			return habilidad
 		}
 	}
+	
 	method cobra(presentacion) { 
     	if(self.cantaEnGrupo(presentacion)){ 
       		return 50 
-    } else { 
-      		return 100 
-    } 
-   } 
+    	} else return 100 
+   	} 
 	
 }

@@ -33,7 +33,7 @@ class Presentacion {
 		return artistas.contains(artista) && artistas.size() > 1
 	}
 	
-	method agregarArtistas(artista){
+	method agregarArtista(artista){
 		artistas.add(artista)
 	}
 	
@@ -43,6 +43,10 @@ class Presentacion {
 	
 	method artistas(listaDeArtistas){
 		artistas = listaDeArtistas
+	}
+	
+	method artistas(){
+		return artistas
 	}
 
 	method lugar(){
