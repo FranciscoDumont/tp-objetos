@@ -38,22 +38,23 @@ class Musico {
 	method laPego(){
 		return albumes.all({ album => album.esBuenaVenta() })		
 	}
-	
-	method cumpleCon(requisito){ //requisitos.wlk
-		return requisito.cumple(self)
-	}
 
-	method compusoUnaCancion(){
-		return albumes.size() > 0 && albumes.forEach{album => album.tieneUnaCancion()}
+	method noCompusoUnaCancion(){
+		return albumes.size() == 0 || albumes.all{album => album.noTieneCanciones()}
 	}
 
 	method habilidad(){
 		return habilidad
 	}
 	
+	method habilidad(unaHabilidad){
+		habilidad = unaHabilidad
+	}
+	
 	method interpretaBien(cancion) {
 		return habilidad > 60 || albumes.any({album=>album.estaEnAlbum(cancion)})		
 	}
+	
 }
 
 class MusicoVocalista inherits Musico {
@@ -75,7 +76,7 @@ class MusicoVocalista inherits Musico {
 		else return 400
 	}
 	
-	method habilidad(presentacion) {
+	method habilidadXPresentacion(presentacion) {
 		if (self.cantaEnGrupo(presentacion)) {
 			return habilidad - 20
 		}
@@ -94,7 +95,7 @@ class MusicoDeGrupo inherits Musico {
 		return cancion.duraMasDe(300) || super(cancion)
 	}
 
-	method habilidad(presentacion) { 
+	method habilidadXPresentacion(presentacion) { 
 		if (self.cantaEnGrupo(presentacion)) {
 			return habilidad += plus
 		} else {
