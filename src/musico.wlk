@@ -110,3 +110,51 @@ class MusicoDeGrupo inherits Musico {
    	} 
 	
 }
+
+// Categorias de Musicos Palabreros, Largueros y Impareros
+//creo que tmabien podrian ser clases
+object palabrero{
+	method interpretaBien(cancion,palabra){
+		return cancion.tienePalabra(palabra)
+	}
+}
+
+object larguero{
+	method interpretaBien(cancion,segundos){
+		return cancion.duraMasDe(segundos)
+	}	
+}
+
+object imparero{
+	method interpretaBien(cancion){
+		return cancion.duracion().odd()
+	}	
+}
+
+/* 
+//Criterios para cobrar
+
+//		Algo asi tendria que ir en los musicos		//
+//var criterioParaCobrar							//
+//cobra(){											//
+//	return criterioParaCobrar.cobra(presentacion)	//
+
+
+object segunNroCompanieros{
+	method cobra(presentacion){
+		return presentacion.artistas().size()*1000
+	}
+}
+object segunCapacidad{
+	method cobra(presentacion,capacidad){
+		if(presentacion.cantidadPersonas()>capacidad){
+			return cantidadX
+		} else return cantidadX-100
+	}
+}
+object segunExpectativaInflacionaria{
+	method cobra(presentacion,fecha,porcentajeAdicional){
+		return precio + precio*porcentajeAdicional/100
+	}
+}
+*/
